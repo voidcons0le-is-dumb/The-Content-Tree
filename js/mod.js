@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
-	modFiles: ["layers.js", "tree.js"],
+	name: "The Content Tree",
+	author: "voidcons0le/plutonium",
+	pointsName: "Particles",
+	modFiles: ["layers/p.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -42,6 +42,18 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('p', 12)) gain = gain.add(1)
+	if (hasUpgrade('p', 13)) gain = gain.add(2)
+	if (hasUpgrade('p', 23)) gain = gain.add(5)
+	if (hasUpgrade('p', 34)) gain = gain.add(10)
+	if (hasUpgrade('p', 11)) gain = gain.mul(2)
+	if (hasUpgrade('p', 14)) gain = gain.mul(upgradeEffect('p', 14))
+	if (hasUpgrade('p', 21)) gain = gain.mul(upgradeEffect('p', 21))
+	if (hasUpgrade('p', 22)) gain = gain.mul(3)
+	if (hasUpgrade('p', 31)) gain = gain.mul(4)
+	if (hasUpgrade('p', 33)) gain = gain.mul(upgradeEffect('p', 33))
+	if (hasUpgrade('p', 41)) gain = gain.mul(3)
+	if (hasUpgrade('p', 42)) gain = gain.mul(upgradeEffect('p', 42))
 	return gain
 }
 
